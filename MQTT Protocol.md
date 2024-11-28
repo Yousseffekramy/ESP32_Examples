@@ -21,7 +21,7 @@ MQTT QoS is an agreement between the message sender and receiver that defines th
 #### **QoS 0**: At most once (no acknowledgment).
 - It is called as `Fire and Forget level`, messages are sent without any confirmation from the receiver.
 - This means it is technically possible for a message to get lost, given an unreliable connection.
-![QoS level 0] (https://github.com/Yousseffekramy/ESP32_Examples/blob/main/QoS%20Level0.webp)
+![QoS level 0] (QoS%20Level0.webp)
 
 #### **QoS 1**: At least once (acknowledged delivery).
 - In QoS level 1, the receiver must send a confirmation **(PUBACK)** to let the sender know that the message was received.
