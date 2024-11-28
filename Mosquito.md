@@ -6,24 +6,33 @@ Mosquitto is a popular and open-source message broker that implements the MQTT p
 
 ## Installation 
 1- Download the broker from ![here](https://drive.google.com/file/d/1SD-kV9AA8u5YRWwkjpYQbh_VABFwUCq9/view?usp=drive_link)
+
 2- Install the file there through click `Next` till the end.
-3- Don't forget to know the installed file path
+
+3- Don't forget to know the installed file path.
 
 ## Network Configuration
 1- Open the installed file path.
+
 2- Create a text file named test.conf under the Mosquitto folder (C:\Program Files\mosquitto).
+
 3- Open the created file, and write the following commands:
+
     ```
     listener 1883
     allow_anonymous true  
     ```
+    
 4- change the directory using this code
+
     ```
     cd C:\Program Files\mosquitto
     mosquitto -c test.conf -v
     ```
+    
     ▪ -c test.conf: Specifies a configuration file for the Mosquitto broker.
     ▪ -v: Enables verbose mode to provide additional information and logging.
+    
 5- For Getting Broker IP: Open CMD window and write `ipconfig` to get the broker IP.
 
 We will use Python Client to operate the network we need in MQTT. We will install `The Paho Python Client` provides a client class with support for MQTT.
