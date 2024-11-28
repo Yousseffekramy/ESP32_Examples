@@ -23,22 +23,22 @@ Mosquitto is a popular and open-source message broker that implements the MQTT p
     allow_anonymous true  
     ```
 4- change the directory using this code
-
-    ```
+    
     cd C:\Program Files\mosquitto
     mosquitto -c test.conf -v
-    ```
-    ▪ -c test.conf: Specifies a configuration file for the Mosquitto broker.
-    ▪ -v: Enables verbose mode to provide additional information and logging.
+
+▪ -c test.conf: Specifies a configuration file for the Mosquitto broker.
+
+▪ -v: Enables verbose mode to provide additional information and logging.
     
 5- For Getting Broker IP: Open CMD window and write `ipconfig` to get the broker IP.
 
 We will use Python Client to operate the network we need in MQTT. We will install `The Paho Python Client` provides a client class with support for MQTT.
 
-6- Add this command in the CMD
-    ```
+6- Add this command in the CMD.
+
     pip install paho-mqtt==1.6.1
-    ```
+
 ![MQTT Model](https://github.com/user-attachments/assets/bc065b7c-3fc4-4ef1-a8a9-d0b3a1d921a4)
 
 7- Operate the Publisher Code
@@ -81,4 +81,40 @@ while True:
 
 # Disconnect from the MQTT broker
 client.disconnect()
+```
+8- Operate the Subscriber Code
+```python
+# Import the necessary modules
+import paho.mqtt.client as mqtt
+
+# MQTT broker address
+broker_address = "192.168.137.1"
+
+# MQTT broker port
+port = 1883
+
+# MQTT topic to which the subscriber will subscribe
+topic = "home/led"
+
+# Quality of Service (QoS)
+qos = 0
+
+# Callback function to handle incoming messages
+def on_message(client, userdata, message):
+    print("Received message:", message.payload.decode())
+
+# Create an MQTT client instance with the name "subscriber"
+client = mqtt.Client("subscriber")
+
+# Connect to the MQTT broker using the specified IP address and port
+client.connect(broker_address, port)
+
+# Subscribe to the specified topic
+client.subscribe(topic, qos)
+
+# Set the callback function for incoming messages
+client.on_message = on_message
+
+# Start the MQTT client loop to receive messages
+client.loop_forever()
 ```
