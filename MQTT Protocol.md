@@ -21,19 +21,17 @@ MQTT QoS is an agreement between the message sender and receiver that defines th
 #### **QoS 0**: At most once (no acknowledgment).
 - It is called as `Fire and Forget level`, messages are sent without any confirmation from the receiver.
 - This means it is technically possible for a message to get lost, given an unreliable connection.
-![QoS level 0] (QoS%20Level0.webp)
 
 #### **QoS 1**: At least once (acknowledged delivery).
 - In QoS level 1, the receiver must send a confirmation **(PUBACK)** to let the sender know that the message was received.
 - However, it is possible that the receiver gets a message multiple times.
 - This QoS level ensures that a message makes it from sender to receiver but doesn't ensure that it received exactly once.
-![QoS level 1] (https://github.com/Yousseffekramy/ESP32_Examples/blob/main/QoS%20Level1.webp)
 
 #### **QoS 2**: Exactly once (ensures no duplicates).
 It uses a four-step communication process to ensure the message is sent exactly once only. It offers the highest level of QoS in MQTT ensuring the message is delivered once through four-step handshake between the sender and receiver.
 - When a receiver gets a QoS 2 PUBLISH packet from a sender it replies to sender with a `PUBREC` packet that acknowledges the publisher.
 - If the sender doesn't get the `PUBREC` packet from the receiver, it sends the packet again with a duplicate flag known as `PUBREL` until it receives an acknowledgement.
-![QoS level 2] (https://github.com/Yousseffekramy/ESP32_Examples/blob/main/QoS%20Level2.webp)
+![QoS Levels](https://github.com/user-attachments/assets/3aa82c10-af7c-4634-ba6a-9ce24522b5f3)
 
 ### 4. Bidirectional Communication Protocol
 - This means a device can be a publisher and a subscriber at the same time.
