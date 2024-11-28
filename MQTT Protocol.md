@@ -6,6 +6,7 @@ MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol d
 
 ### 1. Publish/Subscribe Model
 Unlike traditional client-server models, MQTT follows a publish/subscribe paradigm where devices (clients) do not directly communicate with each other. Instead, they interact via a central intermediary called a broker.
+![Publish/Subscribe Informal Explanation](https://github.com/user-attachments/assets/271f6887-7506-4f8f-8afc-f241929d8fe4)
 
 - **Publisher**: Sends data (messages) to the broker under a specific topic.
 - **Subscriber**: Receives messages from the broker by subscribing to a specific topic.
@@ -21,16 +22,21 @@ MQTT QoS is an agreement between the message sender and receiver that defines th
 #### **QoS 0**: At most once (no acknowledgment).
 - It is called as `Fire and Forget level`, messages are sent without any confirmation from the receiver.
 - This means it is technically possible for a message to get lost, given an unreliable connection.
+![QoS Level 0](https://github.com/user-attachments/assets/e5fe46a6-855c-4e83-a250-9e205f46361c)
 
 #### **QoS 1**: At least once (acknowledged delivery).
 - In QoS level 1, the receiver must send a confirmation **(PUBACK)** to let the sender know that the message was received.
 - However, it is possible that the receiver gets a message multiple times.
 - This QoS level ensures that a message makes it from sender to receiver but doesn't ensure that it received exactly once.
+![QoS level 1](https://github.com/user-attachments/assets/78073a35-7253-4a24-84e4-03cd88e415da)
 
 #### **QoS 2**: Exactly once (ensures no duplicates).
 It uses a four-step communication process to ensure the message is sent exactly once only. It offers the highest level of QoS in MQTT ensuring the message is delivered once through four-step handshake between the sender and receiver.
 - When a receiver gets a QoS 2 PUBLISH packet from a sender it replies to sender with a `PUBREC` packet that acknowledges the publisher.
 - If the sender doesn't get the `PUBREC` packet from the receiver, it sends the packet again with a duplicate flag known as `PUBREL` until it receives an acknowledgement.
+![image](https://github.com/user-attachments/assets/d87c4859-8f1a-4345-8830-f008c75e8953)
+
+#### **Summary for the QoS levels**
 ![QoS Levels](https://github.com/user-attachments/assets/3aa82c10-af7c-4634-ba6a-9ce24522b5f3)
 
 ### 4. Bidirectional Communication Protocol
@@ -66,10 +72,11 @@ Also, Here you can see an application for what is special in MQTT "Bidirectional
 - **Subscriber**: The smart light sends its status after the command under the same topic 
 - **Broker**: Forward the command to the subscribed mobile device.  
 - **Subscriber**: The mobile app received a piece of information about the smart light's status after the command.
+![Smart Light System using MQTT](https://github.com/user-attachments/assets/9d429505-91b3-4687-b167-ade36c6f43fe)
 
 
 ## Examples for the MQTT Brokers
 
 # References
 - [MQTT-The Standard for IOT Messaging](https://youtu.be/fbf7SoFVjP4?si=bHV7psqcgI7gRpFe)
--  
+- [What is MQTT Quality of Service (QoS) 0,1, & 2? – MQTT Essentials](https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/) 
