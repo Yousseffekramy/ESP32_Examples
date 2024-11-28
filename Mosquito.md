@@ -17,14 +17,12 @@ Mosquitto is a popular and open-source message broker that implements the MQTT p
 2- Create a text file named test.conf under the Mosquitto folder (C:\Program Files\mosquitto).
 
 3- Open the created file, and write the following commands:
-
     ```
     listener 1883
     allow_anonymous true  
     ```
     
 4- change the directory using this code
-
     ```
     cd C:\Program Files\mosquitto
     mosquitto -c test.conf -v
