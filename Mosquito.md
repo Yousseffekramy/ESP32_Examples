@@ -118,3 +118,7 @@ client.on_message = on_message
 # Start the MQTT client loop to receive messages
 client.loop_forever()
 ```
+
+You can also use NodeMCU or any other system to be publisher or subscriber and your computer is the other. Here are the codes:
+- ![NodeMCU as Publisher and PC as Subscriber](https://drive.google.com/drive/folders/1KxktOsW-AaLQsVGcMVwroD8DYk9D72qf?usp=drive_link)
+- ![NodeMCU as Subscriber and PC as Publisher](https://drive.google.com/drive/folders/1de8YCSyn2SkyXdw020KjBV6zR6lvd7jd?usp=drive_link)
