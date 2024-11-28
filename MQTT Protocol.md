@@ -76,14 +76,7 @@ Also, Here you can see an application for what is special in MQTT "Bidirectional
 
 
 ## Examples for the MQTT Brokers
-The broker receives all messages from the clients, filters the messages, determines who is subscribed to the topic, and then sends the message to these subscribed clients.
-
-### Mosquito Broker
-Mosquitto is a popular and open-source message broker that implements the MQTT protocol.
-- In the world of IoT, where devices need to communicate efficiently, Mosquitto’s ability to handle multiple connections and deliver messages in real-time is very useful.
-- Mosquitto MQTT can run on various operating systems, including Linux, Windows, macOS, and even on Raspberry Pi.
-![Mosquitto MQTT](https://github.com/user-attachments/assets/fa2c3f1b-6066-4f54-bcd8-bc1dad0b3165)
-
+The broker receives all messages from the clients, filters the messages, determines who is subscribed to the topic, and then sends the message to these subscribed clients as Mosquito Broker. Know more about it ![here](https://github.com/Yousseffekramy/ESP32_Examples/blob/main/Mosquito.md).
 
 # References
 - [MQTT-The Standard for IOT Messaging](https://youtu.be/fbf7SoFVjP4?si=bHV7psqcgI7gRpFe)
